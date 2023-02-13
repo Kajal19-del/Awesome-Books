@@ -19,7 +19,7 @@ if (localStorage.getItem('books') !== null) {
   });
 }
 
-function addBook(bookTitle, bookAuthor) {
+function AddBook(bookTitle, bookAuthor) {
   this.bookTitle = bookTitle;
   this.bookAuthor = bookAuthor;
 }
@@ -36,7 +36,7 @@ addBookBtn.addEventListener('click', (e) => {
   </div>
   `;
 
-  const newBooks = new addBook(bookTitle.value, bookAuthor.value);
+  const newBooks = new AddBook(bookTitle.value, bookAuthor.value);
 
   if (localStorage.getItem('books') === null) {
     const books = [];
