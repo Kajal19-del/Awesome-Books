@@ -4,7 +4,7 @@ const bookAuthor = document.querySelector('#bookAuthor');
 const addBookBtn = document.querySelector('#addBookBtn');
 
 // section - hold books after refresh or closing the page
-if (localStorage.getItem('books') !==null) {
+if (localStorage.getItem('books') !== null) {
   const getbook = JSON.parse(localStorage.getItem('books'));
 
   getbook.forEach((item) => {
@@ -29,9 +29,9 @@ addBookBtn.addEventListener('click', (e) => {
 
   addingBooks.innerHTML += `
   <div>
-  <h3>${item.bookTitle}</h3>
-  <p>${item.bookAuthor}</p>
-  <button class='removeBook' name=${item.bookTitle}>Remove</button>
+  <h3>${bookTitle.value}</h3>
+  <p>${bookAuthor.value}</p>
+  <button class='removeBook' name=${bookTitle.value}>Remove</button>
   <hr>
   </div>
   `;
@@ -47,4 +47,22 @@ addBookBtn.addEventListener('click', (e) => {
     books.push(newBooks);
     localStorage.setItem('books', JSON.stringify(books));
   }
+});
+
+// remove button
+const remove = document.querySelectorAll('.removeBook');
+
+remove.forEach((item) => {
+  item.addEventListener('click', () => {
+    item.parentElement.remove();
+    const bookname = item.name;
+
+    // remove from local storage
+    const getremove = JSON.parse(localStorage.getItem('books'));
+
+    const newArr = getremove.filter((object) => object.bookTitle !== bookname);
+
+    // update localstorage
+    localStorage.setItem('books', JSON.stringify(newArr));
+  });
 });
