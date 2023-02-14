@@ -1,68 +1,30 @@
-const addingBooks = document.querySelector('#addingBooks');
+const bookList = document.querySelector('#bookList');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#bookAuthor');
 const addBookBtn = document.querySelector('#addBookBtn');
 
 // section - hold books after refresh or closing the page
-if (localStorage.getItem('books') !== null) {
-  const getbook = JSON.parse(localStorage.getItem('books'));
+let Books = [];
 
-  getbook.forEach((item) => {
-    addingBooks.innerHTML += `
+function BookData() {
+  bookList.innerHTML = '';
+  for (let i = 0; i < Books.length; i++) {
+    bookList.innerHTML += `
       <div>
-      <h3>${item.bookTitle}</h3>
-      <p>${item.bookAuthor}</p>
-      <button class='removeBook' name=${item.bookTitle}>Remove</button>
+      <h3 class='booksTitle'>${Books[i].booksTitle}</h3>
+      <p class='booksAuthor'>${Books[i].booksAuthor}</p>
+      <button class='removeBook' onclick='remove(${i})'>remove</button>
       <hr>
       </div>
     `;
-  });
-}
 
-function AddBook(bookTitle, bookAuthor) {
-  this.bookTitle = bookTitle;
-  this.bookAuthor = bookAuthor;
-}
-
-addBookBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  addingBooks.innerHTML += `
-  <div>
-  <h3>${bookTitle.value}</h3>
-  <p>${bookAuthor.value}</p>
-  <button class='removeBook' name=${bookTitle.value}>Remove</button>
-  <hr>
-  </div>
-  `;
-
-  const newBooks = new AddBook(bookTitle.value, bookAuthor.value);
-
-  if (localStorage.getItem('books') === null) {
-    const books = [];
-    books.push(newBooks);
-    localStorage.setItem('books', JSON.stringify(books));
-  } else {
-    const books = JSON.parse(localStorage.getItem('books'));
-    books.push(newBooks);
-    localStorage.setItem('books', JSON.stringify(books));
+    bookTitle.value = '';
+    bookAuthor.value = '';
   }
-});
+}
 
-// remove button
-const remove = document.querySelectorAll('.removeBook');
-
-remove.forEach((item) => {
-  item.addEventListener('click', () => {
-    item.parentElement.remove();
-    const bookname = item.name;
-
-    // remove from local storage
-    const getremove = JSON.parse(localStorage.getItem('books'));
-
-    const newArr = getremove.filter((object) => object.bookTitle !== bookname);
-
-    // update localstorage
-    localStorage.setItem('books', JSON.stringify(newArr));
-  });
-});
+function remove(index) {
+  Books.splice(index, 1);
+  BookData();
+  localStorage.setItem('Books', JSON.stringify(Books));
+};
