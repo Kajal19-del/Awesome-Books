@@ -33,3 +33,18 @@ class AwesomeBook {
     localStorage.setItem('Books', JSON.stringify(Books));
   }
 }
+
+// save books in local storage and showing on page even refresh
+window.onload = () => {
+  if (localStorage.getItem('Books')) {
+    Books = JSON.parse(localStorage.getItem('Books'));
+  }
+  AwesomeBook.bookData();
+};
+// add books on page and local storage
+addBookBtn.addEventListener('click', () => {
+  const bookItems = new AwesomeBook(bookTitle.value, bookAuthor.value);
+  Books.push(bookItems);
+  AwesomeBook.bookData();
+  localStorage.setItem('Books', JSON.stringify(Books));
+});
