@@ -28,3 +28,19 @@ function remove(index) {
   BookData();
   localStorage.setItem('Books', JSON.stringify(Books));
 };
+
+window.onload = () => {
+  if (localStorage.getItem('Books')) {
+    Books = JSON.parse(localStorage.getItem('Books'))
+  }
+  BookData();
+};
+addBookBtn.addEventListener('click', () => {
+  const bookItems = {
+    booksTitle: bookTitle.value,
+    booksAuthor: bookAuthor.value,
+  };
+  Books.push(bookItems);
+  BookData();
+  localStorage.setItem('Books', JSON.stringify(Books));
+})
