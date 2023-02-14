@@ -23,7 +23,6 @@ class AwesomeBook {
 
       bookTitle.value = '';
       bookAuthor.value = '';
-      bookTitle.focus();
     }
   }
 
