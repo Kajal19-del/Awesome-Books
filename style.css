@@ -1,3 +1,37 @@
 * {
   color: black;
 }
+
+.bookLibrary {
+  text-align: center;
+  padding: 5% 20%;
+}
+
+#bookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bookTitle,
+#bookAuthor {
+  margin-bottom: 1rem;
+  width: 50%;
+  padding: 0.8rem;
+}
+
+#addBookBtn {
+  padding: 0.5rem;
+  width: 25%;
+  margin: 1% 0 0 30%;
+}
+
+.library {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2vh;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
