@@ -1,15 +1,15 @@
-const date = new Date ();
+const date = new Date();
 const dateAndTime = document.querySelector('.date-and-time');
 const listPage = document.querySelector('.list');
 const addPage = document.querySelector('.add');
-const contactPage = document.querySelector('.contact')
+const contactPage = document.querySelector('.contact');
 const bookList = document.querySelector('#bookList');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#bookAuthor');
 const addBookBtn = document.querySelector('#addBookBtn');
 const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-dateAndTime.innerHTML = `${date.toDateString()}, ${time}`
+dateAndTime.innerHTML = `${date.toDateString()}, ${time}`;
 
 let Books = [];
 
@@ -60,14 +60,14 @@ listPage.addEventListener('click', () => {
   document.querySelector('.bookLibrary').style.display = 'block';
   document.querySelector('.bookForm').style.display = 'none';
   document.querySelector('.contactInfo').style.display = 'none';
-})
+});
 addPage.addEventListener('click', () => {
   document.querySelector('.bookLibrary').style.display = 'none';
   document.querySelector('.bookForm').style.display = 'block';
   document.querySelector('.contactInfo').style.display = 'none';
-})
+});
 contactPage.addEventListener('click', () => {
   document.querySelector('.bookLibrary').style.display = 'none';
   document.querySelector('.bookForm').style.display = 'none';
   document.querySelector('.contactInfo').style.display = 'block';
-})
+});
