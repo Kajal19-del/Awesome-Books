@@ -8,17 +8,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="bookLibrary"> 
-    <h1>Awesome Books KJ</h1>
-    <section id="bookList"></section>
-    <h3>Add a new book</h3>
+  <header>
+    <nav>
+      <h3>Awesome Books KJ</h3>
+      <ul>
+        <a href="#" class="list"><li>List</li></a>  
+        <a href="#" class="add"><li>Add new</li></a>  
+        <a href="#" class="contact"><li>Contact</li></a>         
+      </ul>
+    </nav>
+    <p class="date-and-time">LAKJf</p>
+  </header>
 
-    <form id="bookForm">
+  <section class="bookLibrary"> 
+    <h1>All Awesome Books</h1>
+    <section id="bookList"></section>
+  </section>
+  
+  <section class="bookForm">
+    <h3>Add a new book</h3>
+    <form>
       <input type="text" name="title" id="bookTitle" placeholder="Title" autocomplete="off">
       <input type="text" name="author" id="bookAuthor" placeholder="Author" autocomplete="off">
       <button type="submit" id="addBookBtn">Add Book</button>
     </form>
   </section>
+
+  <section class="contactInfo">
+    <h2>Contact information</h2>
+    <p>Do have any questions or you just want to say "Hello"? You can reach out to us!</p>
+
+    <ul>
+      <li>Our e-mail: mail@mail.com</li>
+      <li>Our phone number: 0043586534422</li>
+      <li>Our address: Streetname 22, 84503 City, Country</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2023, Awesome Books KJ | All Rights Reserved</p>
+  </footer>
+
   <script src="main.js"></script>
 </body>
 </html>
