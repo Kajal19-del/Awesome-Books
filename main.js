@@ -1,7 +1,15 @@
+const date = new Date ();
+const dateAndTime = document.querySelector('.date-and-time');
+const listPage = document.querySelector('.list');
+const addPage = document.querySelector('.add');
+const contactPage = document.querySelector('.contact')
 const bookList = document.querySelector('#bookList');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#bookAuthor');
 const addBookBtn = document.querySelector('#addBookBtn');
+const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+dateAndTime.innerHTML = `${date.toDateString()}, ${time}`
 
 let Books = [];
 
