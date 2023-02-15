@@ -4,12 +4,6 @@
   font-family: 'Lato', sans-serif;
 }
 
-.bookLibrary,
-.bookForm,
-.contactInfo {
-  display: none;
-}
-
 body {
   padding: 0 2rem;
 }
@@ -76,4 +70,26 @@ nav ul a {
   padding: 0.5rem;
   width: 25%;
   align-self: flex-end;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15vh auto;
+  width: 80%;
+}
+
+footer {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.bookLibrary,
+.bookForm,
+.contactInfo {
+  display: none;
 }
